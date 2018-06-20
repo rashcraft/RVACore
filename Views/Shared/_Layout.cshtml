@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <environment include="Development">
+        <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />-->
+        <link rel="stylesheet" href="~/css/slidebars.css" />
+        <link rel="stylesheet" href="~/css/light.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+    </environment>
+    <environment exclude="Development">
+        <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />-->
+        <link rel="stylesheet" href="~/css/slidebars.css" />
+        <link rel="stylesheet" href="~/css/light.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+    </environment>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39031510-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39031510-1');
+    </script>
+        <link href="/favicon.png" type="image/x-icon" rel="shortcut icon"/> 
+        <link href="/favicon.png" type="image/x-icon" rel="icon"/> 
+</head>
+<body>
+    <div id="topnav">
+        <div class="topnavleft">
+            <div class="topnavtxt"><h4><a class="anostyle" href="/Home/Index">richard v ashcraft</a></h4></div>
+        </div>
+        <div class="topnavright">
+            <div id="nav-container" class="js-toggle-left-slidebar">
+                <div class="toggle-icon">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div off-canvas="slidebar-1 left reveal">
+        <!--<button class="js-close-left-slidebar">close</button>-->
+        <div id="leftnav">
+            <ul>
+                <li style="list-style: none;"><a href="/Home/Index">home</a></li>
+                <li style="list-style: none;"><a href="/Content/Jager">das Jäger</a></li>
+                <li style="list-style: none;"><a href="/Support/Contact">contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div canvas="container">
+        <!--<button class="js-toggle-left-slidebar">Toggle left Slidebar</button>-->
+        @RenderBody()
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/slidebars.js"></script>
+        <script src="~/js/index.js"></script>
+        <script src="~/js/prefixfree.min.js"></script>
+        <script src="~/js/scripts.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/slidebars.js"></script>
+        <script src="~/js/index.js"></script>
+        <script src="~/js/prefixfree.min.js"></script>
+        <script src="~/js/scripts.js"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript">
+        $(".toggle-icon").click(function () {
+            $('#nav-container').toggleClass("pushed");
+        });
+    </script>
+</body>
+</html>

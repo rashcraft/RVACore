@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+@model CoreMVC.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Contact";
+}
+@{
+    /*
+     * summary of validation errors
+    @Html.ValidationSummary()
+    */
+}
+<form method="post">
+    <div class="columnleft">
+            <div id="bkgimage">
+            <div id="contactPadding">
+            <fieldset>
+                <div class="formText">
+                    <h3>
+                    @if (ViewBag.Message != null)
+                    {
+                    @ViewBag.Message
+                    }
+                    </h3>
+                </div>
+                <div class="contactForm">
+                    <div class="contactLabelDiv"><label asp-for="Name">Name</label></div>
+                    <input asp-for="Name" /><span class="required">*</span><br />
+                    <span asp-validation-for="Name" class="contactFormMessage"></span>
+
+                </div>
+                <div class="contactForm">
+                    <div class="contactLabelDiv"><label asp-for="Email">Email</label></div>
+                    <input asp-for="Email" /><span class="required">*</span><br />
+                    <span asp-validation-for="Email" class="contactFormMessage"></span>
+                </div>
+                <div class="contactForm">
+                    <div class="contactLabelDiv"><label asp-for="Subject">Subject</label></div>
+                    <input asp-for="Subject" /><span class="required">*</span><br />
+                    <span asp-validation-for="Subject" class="contactFormMessage"></span>
+                </div>
+                <div class="contactForm">
+                    <div class="contactLabelDiv"><label asp-for="Message">Message</label></div>
+                    <textarea rows="10" cols="50" asp-for="Message"></textarea><span class="required">*</span><br />
+                    <span asp-validation-for="Message" class="contactFormMessage"></span>
+                </div>
+                <div class="contactForm">
+                    <span class="required">* Required Fields</span><br /><br />
+                    <button type="submit" class="btn btn-success">Send</button>
+                </div>
+            </fieldset>
+                </div>
+        </div>
+    </div>
+    <div class="columnright">
+        <img src="~/images/support/contact.png" border="0" alt="Richard V Ashcraft Contact" />
+    </div>
+</form>

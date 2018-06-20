@@ -1,0 +1,42 @@
+﻿<div class="bodyPadding">
+    @{
+        /*
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Affiliate Notifications";
+
+        string path = Server.MapPath("~/App_Data/AffiliateNotificationsPost.txt");
+
+        if (Request.QueryString.Keys.Count > 0)
+        {
+            string post1 = Request["NotificationEvent"] + Environment.NewLine;
+            string post2 = Request["Status"] + Environment.NewLine;
+            string post3 = Request["UserEmail"] + Environment.NewLine;
+            string post4 = Request["externalid"] + Environment.NewLine;
+            string post5 = Request["AccountNumber"] + Environment.NewLine;
+            string post6 = Request["AccountType"] + Environment.NewLine;
+            string post7 = Request["signupDateTime"] + Environment.NewLine;
+            string post8 = Request["ExpirationDateTime"] + Environment.NewLine;
+
+            // write the post to a text file.
+            File.AppendAllText(path, "Posted Data from Insider" + Environment.NewLine + "NotificationEvent: " + post1 + "Status: " + post2 + "UserEmail: " + post3 + "externalid: " + post4 + "AccountNumber: " + post5 + "AccountType: " + post6 + "signupDateTime: " + post7 + "ExpirationDateTime: " + post8 + Environment.NewLine);
+        }
+
+        if (IsPost)//&& Request.Form["submit"] != null)
+        {
+            File.WriteAllText(path, "");
+        }
+
+        var textfile = File.ReadAllText(path);
+
+        @Html.TextArea("AffiliateNotificationsLabel", textfile, new { id = "", style = "Width:600px; Height:700px;" })
+        */
+    }
+
+    <br /><br />
+    @using (Html.BeginForm("AffiliateNotifications", "support"))
+    {
+        <input type="submit" value="Reset" id="btnSubmit" />
+        <!--<input type="submit" value="Reload" id="btnReload" />-->
+    }
+
+</div>
